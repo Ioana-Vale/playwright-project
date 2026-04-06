@@ -1,0 +1,12 @@
+import { test, expect } from '@playwright/test';
+
+test('Test care esueaza intentionat', async ({ page }) => {
+  await page.goto('https://www.saucedemo.com');
+
+  await page.fill('#user-name', 'standard_user');
+  await page.fill('#password', 'secret_sauce');
+  await page.click('#login-button');
+
+  // ❌ verificare gresita (va pica)
+  await expect(page).toHaveURL('/wrong-page');
+});
