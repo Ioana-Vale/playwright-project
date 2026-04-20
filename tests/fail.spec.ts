@@ -7,6 +7,6 @@ test('Test care esueaza intentionat', async ({ page }) => {
   await page.fill('#password', 'secret_sauce');
   await page.click('#login-button');
 
-  // ❌ verificare gresita (va pica)
+ 
   await expect(page).toHaveURL('/wrong-page');
 });
